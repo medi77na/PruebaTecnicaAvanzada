@@ -29,6 +29,11 @@ public class EmployeeService(AppDbContext context) : GeneralService(context), IE
         return await _context.Employees.FindAsync(id);
     }
 
+    public Task<Employee> GetByEmail(string email)
+    {
+        return _context.Employees.FirstOrDefaultAsync(u => u.Email == email);
+    }
+
     public async Task Update(Employee model)
     {
         _context.Entry(model).State = EntityState.Modified;

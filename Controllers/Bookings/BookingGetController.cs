@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PruebaTecnica.Models;
 using PruebaTecnica.Repositories;
@@ -16,6 +17,7 @@ public class BookingGetController(IBookingRepository bookingRepository, ICheckEx
         return Ok(await _bookingRepository.GetAll());
     }
 
+    [Authorize]
     [HttpGet("Id")]
     public async Task<ActionResult<Booking>> GetBookingById(int id)
     {

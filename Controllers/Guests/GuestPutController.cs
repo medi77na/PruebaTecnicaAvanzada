@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PruebaTecnica.Dtos;
 using PruebaTecnica.Repositories;
@@ -10,6 +11,7 @@ namespace PruebaTecnica.Controllers.Guests;
 [Tags("Guest")]
 public class GuestPutController(IGuestRepository guestRepository, IMapper mapper, ICheckExistRepository checkExistRepository) : GuestController(guestRepository, mapper, checkExistRepository)
 {
+    [Authorize]
     [HttpPut]
     public async Task<ActionResult> UpdateGuest(int id, GuestDto model)
     {

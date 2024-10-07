@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PruebaTecnica.Dtos;
 using PruebaTecnica.Models;
@@ -11,6 +12,7 @@ namespace PruebaTecnica.Controllers.Bookings;
 [Tags("Booking")]
 public class BookingPostController(IBookingRepository bookingRepository, IMapper mapper, ICheckExistRepository checkExistRepository) : BookingController(bookingRepository, mapper, checkExistRepository)
 {
+    [Authorize]
     [HttpPost]
     public async Task<ActionResult> CreateBooking(BookingDto model)
     {

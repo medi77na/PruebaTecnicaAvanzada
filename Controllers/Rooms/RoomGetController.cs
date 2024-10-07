@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PruebaTecnica.Models;
 using PruebaTecnica.Repositories;
@@ -9,13 +10,13 @@ namespace PruebaTecnica.Controllers.Rooms;
 [Tags("Room")]
 public class RoomGetController(IRoomRepository roomRepository, ICheckExistRepository checkExistRepository) : RoomController(roomRepository, checkExistRepository)
 {
-
+    [Authorize]
     [HttpGet]
     public async Task<ActionResult<List<Room>>> GetRoomsAll()
     {
         return Ok(await _roomRepository.GetAll());
     }
-
+    [Authorize]
     [HttpGet("Id")]
     public async Task<ActionResult<Room>> GetRoomById(int id)
     {
@@ -26,6 +27,7 @@ public class RoomGetController(IRoomRepository roomRepository, ICheckExistReposi
         return Ok(await _roomRepository.GetById(id));
     }
 
+    [Authorize]
     [HttpGet("Available")]
     public async Task<ActionResult<List<Room>>> GetRoomsAvailable()
     {

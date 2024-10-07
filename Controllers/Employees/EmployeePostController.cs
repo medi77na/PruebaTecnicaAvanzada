@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PruebaTecnica.Dtos;
 using PruebaTecnica.Models;
@@ -22,10 +23,14 @@ public class EmployeePostController(IEmployeeRepository employeeRepository, IMap
 
         var employee = _mapper.Map<Employee>(model);
 
+        // Create PasswordHasher<User> instance
+        var passwordHasher = new PasswordHasher<Employee>();
+
+        // Hash the password and assign it to the user's Password property
+        employee.Password = passwordHasher.HashPassword(employee, model.Password);
+
         await _employeeRepository.Add(employee);
 
         return Ok(employee);
     }
-
-
 }

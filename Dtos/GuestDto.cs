@@ -27,5 +27,5 @@ public class GuestDto
     [Required]
     public string? PhoneNumber { get; set; }
 
-    public DateOnly BirthDate { get; set; }
+    public string? BirthDate { get; set; }
 }

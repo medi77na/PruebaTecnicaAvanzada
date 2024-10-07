@@ -9,5 +9,6 @@ public interface IEmployeeRepository
     Task Update(Employee model);
     Task Delete(Employee model);
     Task<Employee?> GetById(int id);
+    Task<Employee> GetByEmail(string email);
     Task<List<Employee>> GetAll();
 }

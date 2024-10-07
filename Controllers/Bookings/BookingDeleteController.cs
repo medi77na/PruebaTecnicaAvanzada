@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PruebaTecnica.Repositories;
 
@@ -8,6 +9,7 @@ namespace PruebaTecnica.Controllers.Bookings;
 [Tags("Booking")]
 public class BookingDeleteController(IBookingRepository bookingRepository, ICheckExistRepository checkExistRepository) : BookingController(bookingRepository, checkExistRepository)
 {
+    [Authorize]
     [HttpDelete]
     public async Task<IActionResult> Delete(int id)
     {
