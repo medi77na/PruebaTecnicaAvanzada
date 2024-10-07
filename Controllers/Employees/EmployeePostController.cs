@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using PruebaTecnica.Dtos;
+using PruebaTecnica.Models;
 using PruebaTecnica.Repositories;
 
 namespace PruebaTecnica.Controllers.Employees;
@@ -13,7 +14,17 @@ public class EmployeePostController(IEmployeeRepository employeeRepository, IMap
     [HttpPost]
     public async Task<ActionResult> CreateEmployee(EmployeeDto model)
     {
-        await _
+        if (!ModelState.IsValid)
+        {
+            return BadRequest($"Modelo inválido. {model}");
+        }
+
+        var employee = _mapper.Map<Employee>(model);
+
+        await _employeeRepository.Add(employee);
+
+        return Ok(employee);
     }
-    
+
+
 }
