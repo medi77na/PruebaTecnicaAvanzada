@@ -1,12 +1,13 @@
 using PruebaTecnica.Dtos;
+using PruebaTecnica.Models;
 
 namespace PruebaTecnica.Repositories;
 
 public interface IEmployeeRepository
 {
-    Task Add(EmployeeDto model);
-    Task Update(EmployeeDto model);
-    Task Delete(int id);
-    Task<EmployeeDto?> GetById(int id);
-    Task<List<EmployeeDto>> GetAll();
+    Task Add(Employee model);
+    Task Update(Employee model);
+    Task Delete(Employee model);
+    Task<Employee?> GetById(int id);
+    Task<List<Employee>> GetAll();
 }

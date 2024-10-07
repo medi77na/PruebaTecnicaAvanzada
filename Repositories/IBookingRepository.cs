@@ -1,12 +1,13 @@
 using PruebaTecnica.Dtos;
+using PruebaTecnica.Models;
 
 namespace PruebaTecnica.Repositories;
 
 public interface IBookingRepository
 {
-    Task Add(BookingDto model);
-    Task<IEnumerable<BookingDto>> GetAll();
-    Task<BookingDto> GetById(int id);
-    Task Update(BookingDto model);
-    Task Delete(int id);
+    Task Add(Booking model);
+    Task<IEnumerable<Booking>> GetAll();
+    Task<Booking> GetById(int id);
+    Task Update(Booking model);
+    Task Delete(Booking model);
 }

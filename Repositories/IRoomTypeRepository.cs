@@ -1,12 +1,12 @@
-using PruebaTecnica.Dtos;
+using PruebaTecnica.Models;
 
 namespace PruebaTecnica.Repositories;
 
 public interface IRoomTypeRepository
 {
-    Task Add(RoomTypeDto model);
-    Task<IEnumerable<RoomTypeDto>> GetAll();
-    Task<RoomTypeDto?> GetById(int id);
-    Task Update(RoomTypeDto model);
-    Task Delete(int id);
+    Task Add(RoomType model);
+    Task<IEnumerable<RoomType>> GetAll();
+    Task<RoomType?> GetById(int id);
+    Task Update(RoomType model);
+    Task Delete(RoomType model);
 }
