@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PruebaTecnica.Models;
+using PruebaTecnica.Seeders;
 
 namespace PruebaTecnica.Data;
 
@@ -15,7 +16,8 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        // RoleSeeder.Seed(modelBuilder);
+        RoomSeeder.Seed(modelBuilder);
+        RoomTypeSeeder.Seed(modelBuilder);
 
         modelBuilder.Entity<Guest>()
             .HasIndex(g => g.IdentificationNumber)
