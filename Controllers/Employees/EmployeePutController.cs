@@ -7,9 +7,9 @@ namespace PruebaTecnica.Controllers.Employees;
 
 [ApiController]
 [Route("api/[controller]")]
+[Tags("Employee")]
 public class EmployeePutController(IEmployeeRepository employeeRepository, IMapper mapper, ICheckExistRepository checkExistRepository) : EmployeeController(employeeRepository, mapper, checkExistRepository)
 {
-    [HttpPut("{id}")]
     [HttpPut]
     public async Task<ActionResult> UpdateRoom(int id, EmployeeDto model)
     {
@@ -31,5 +31,4 @@ public class EmployeePutController(IEmployeeRepository employeeRepository, IMapp
 
         return Ok(employee);
     }
-
 }

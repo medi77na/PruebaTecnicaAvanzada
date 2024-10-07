@@ -6,6 +6,7 @@ namespace PruebaTecnica.Controllers.Employees;
 
 [ApiController]
 [Route("api/[controller]")]
+[Tags("Employee")]
 public class EmployeeGetController(IEmployeeRepository employeeRepository, ICheckExistRepository checkExistRepository) : EmployeeController(employeeRepository, checkExistRepository)
 {
 
@@ -15,6 +16,7 @@ public class EmployeeGetController(IEmployeeRepository employeeRepository, IChec
         return Ok(await _employeeRepository.GetAll());
     }
 
+    [HttpGet("id")]
     public async Task<ActionResult<Employee>> GetEmployeeById(int id)
     {
         if (!await _checkRepository.CheckExistRoom(id))

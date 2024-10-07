@@ -5,9 +5,10 @@ namespace PruebaTecnica.Controllers.Employees;
 
 [ApiController]
 [Route("api/[controller]")]
+[Tags("Employee")]
 public class EmployeeDeleteController(IEmployeeRepository employeeRepository, ICheckExistRepository checkExistRepository) : EmployeeController(employeeRepository, checkExistRepository)
 {
-    [HttpDelete("{id}")]
+    [HttpDelete]
     public async Task<IActionResult> DeleteEmployee(int id)
     {
         if (!await _checkRepository.CheckExistEmployee(id))

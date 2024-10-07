@@ -7,9 +7,9 @@ namespace PruebaTecnica.Controllers.Rooms;
 
 [ApiController]
 [Route("api/[controller]")]
+[Tags("Room")]
 public class RoomPutController(IRoomRepository roomRepository, IMapper mapper, ICheckExistRepository checkExistRepository) : RoomController(roomRepository, mapper, checkExistRepository)
 {
-
     [HttpPut]
     public async Task<ActionResult> UpdateRoom(int id, RoomDto model)
     {

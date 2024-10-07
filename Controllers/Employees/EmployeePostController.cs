@@ -8,6 +8,7 @@ namespace PruebaTecnica.Controllers.Employees;
 
 [ApiController]
 [Route("api/[controller]")]
+[Tags("Employee")]
 public class EmployeePostController(IEmployeeRepository employeeRepository, IMapper mapper, ICheckExistRepository checkExistRepository) : EmployeeController(employeeRepository, mapper, checkExistRepository)
 {
 

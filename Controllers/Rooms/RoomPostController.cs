@@ -8,6 +8,7 @@ namespace PruebaTecnica.Controllers.Rooms;
 
 [ApiController]
 [Route("api/[controller]")]
+[Tags("Room")]
 public class RoomPostController(IRoomRepository roomRepository, IMapper mapper, ICheckExistRepository checkExistRepository) : RoomController(roomRepository, mapper, checkExistRepository)
 {
 

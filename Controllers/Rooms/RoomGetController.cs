@@ -6,6 +6,7 @@ namespace PruebaTecnica.Controllers.Rooms;
 
 [ApiController]
 [Route("api/[controller]")]
+[Tags("Room")]
 public class RoomGetController(IRoomRepository roomRepository, ICheckExistRepository checkExistRepository) : RoomController(roomRepository, checkExistRepository)
 {
 
@@ -15,7 +16,7 @@ public class RoomGetController(IRoomRepository roomRepository, ICheckExistReposi
         return Ok(await _roomRepository.GetAll());
     }
 
-    [HttpGet]
+    [HttpGet("Id")]
     public async Task<ActionResult<Room>> GetRoomById(int id)
     {
         if (!await _checkRepository.CheckExistRoom(id))
@@ -25,13 +26,13 @@ public class RoomGetController(IRoomRepository roomRepository, ICheckExistReposi
         return Ok(await _roomRepository.GetById(id));
     }
 
-    [HttpGet]
+    [HttpGet("Available")]
     public async Task<ActionResult<List<Room>>> GetRoomsAvailable()
     {
         return Ok(await _roomRepository.GetAvailableRooms());
     }
 
-    [HttpGet]
+    [HttpGet("Type")]
     public async Task<ActionResult<List<Room>>> GetRoomsByType(int roomTypeId)
     {
         if (!await _checkRepository.CheckExistRoomType(roomTypeId))
@@ -41,7 +42,7 @@ public class RoomGetController(IRoomRepository roomRepository, ICheckExistReposi
         return Ok(await _roomRepository.GetByType(roomTypeId));
     }
 
-    [HttpGet]
+    [HttpGet("ByNumber")]
     public async Task<ActionResult<Room>> GetRoomByNumber(string roomNumber)
     {
         var room = await _roomRepository.GetByRoomNumber(roomNumber);

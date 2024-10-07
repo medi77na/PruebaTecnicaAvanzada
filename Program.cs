@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using PruebaTecnica.Data;
+using PruebaTecnica.Repositories;
+using PruebaTecnica.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +52,12 @@ builder.Services.AddAuthentication(options =>
 builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddControllers();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<IBookingRepository, BookingServices>();
+builder.Services.AddScoped<ICheckExistRepository, CheckExistService>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeService>();
+builder.Services.AddScoped<IGuestRepository, GuestService>();
+builder.Services.AddScoped<IRoomRepository, RoomService>();
+builder.Services.AddScoped<IRoomTypeRepository, RoomTypeService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

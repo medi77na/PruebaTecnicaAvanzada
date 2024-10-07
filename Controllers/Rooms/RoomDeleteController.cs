@@ -5,9 +5,10 @@ namespace PruebaTecnica.Controllers.Rooms;
 
 [ApiController]
 [Route("api/[controller]")]
+[Tags("Room")]
 public class RoomDeleteController(IRoomRepository roomRepository, ICheckExistRepository checkExistRepository) : RoomController(roomRepository, checkExistRepository)
 {
-    [HttpDelete("{id}")]
+    [HttpDelete]
     public async Task<IActionResult> Delete(int id)
     {
         if (!await _checkRepository.CheckExistRoom(id))
