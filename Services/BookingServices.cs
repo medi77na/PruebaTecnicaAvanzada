@@ -16,7 +16,8 @@ public class BookingServices(AppDbContext context) : GeneralService(context), IB
     public async Task Delete(Booking model)
     {
         _context.Bookings.Remove(model);
-        await _context.SaveChangesAsync();    }
+        await _context.SaveChangesAsync();    
+    }
 
     public async Task<IEnumerable<Booking>> GetAll()
     {

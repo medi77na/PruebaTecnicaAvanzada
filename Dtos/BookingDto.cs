@@ -14,7 +14,7 @@ public class BookingDto
     public int EmployeeId { get; set; }
 
     [Required]
-    public DateOnly StartDate { get; set; }
+    public DateOnly? StartDate { get; set; }
 
-    public DateOnly EndDate { get; set; }
+    public DateOnly? EndDate { get; set; }
 }

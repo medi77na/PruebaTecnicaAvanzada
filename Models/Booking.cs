@@ -21,10 +21,10 @@ public class Booking
     public int EmployeeId { get; set; }
 
     [Column("start_date")]
-    public DateOnly StartDate { get; set; }
+    public DateOnly? StartDate { get; set; }
 
     [Column("end_date")]
-    public DateOnly EndDate { get; set; }
+    public DateOnly? EndDate { get; set; }
 
     [Column("total_cost")]
     public double TotalCost { get; set; }

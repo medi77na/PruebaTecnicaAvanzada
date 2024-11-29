@@ -11,6 +11,10 @@ using PruebaTecnica.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure the port explicitly
+builder.WebHost.UseUrls("http://*:80"); // Change to the desired port, for example, 80 or 8080
+
+
 // Add services to the container.
 Env.Load();
 
@@ -95,11 +99,10 @@ builder.Services.AddSwaggerGen(c =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseHttpsRedirection();
 

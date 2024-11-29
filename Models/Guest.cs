@@ -27,5 +27,5 @@ public class Guest
     public string? PhoneNumber { get; set; }
 
     [Column("birthdate")]
-    public DateOnly BirthDate { get; set; }
+    public DateOnly? BirthDate { get; set; }
 }
